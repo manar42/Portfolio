@@ -1,0 +1,239 @@
+/* ============================================================
+   CASE STUDY — shared styles for zooverse.html etc.
+   Builds on styles.css tokens (colors, type, phone/browser frames)
+   ============================================================ */
+
+/* ---- Hero ---- */
+.cs-hero {
+  padding: 160px var(--edge) 100px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.cs-kicker {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--brass);
+  margin-bottom: 22px;
+}
+
+.cs-title {
+  font-size: clamp(56px, 9vw, 108px);
+  line-height: 0.95;
+  margin-bottom: 24px;
+}
+
+.cs-subtitle {
+  font-size: clamp(19px, 2.4vw, 24px);
+  color: var(--paper-dim);
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.cs-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.cs-meta .dot { color: var(--burgundy-deep); }
+
+/* ---- Generic section shell ---- */
+.cs-section {
+  padding: 100px var(--edge);
+  border-top: 1px solid var(--burgundy-deep);
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.cs-section--tint {
+  max-width: none;
+  background: var(--ink-soft);
+}
+.cs-section--tint > * { max-width: var(--container); margin-left: auto; margin-right: auto; }
+
+.cs-grid-2 {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 60px;
+  margin-bottom: 56px;
+}
+
+.cs-lead {
+  font-size: 19px;
+  color: var(--paper-dim);
+  max-width: 720px;
+}
+
+.cs-lead--narrow { max-width: 620px; margin-bottom: 36px; }
+
+.cs-body {
+  font-size: 16px;
+  color: var(--paper-dim);
+  max-width: 620px;
+  margin: 0 0 20px;
+}
+
+.cs-body--narrow { max-width: 620px; }
+
+.cs-body strong { color: var(--paper); font-weight: 600; }
+
+.cs-facts { margin: 24px 0 0; }
+.cs-facts li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: var(--paper);
+}
+.cs-facts li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 9px;
+  width: 10px; height: 1px;
+  background: var(--burgundy-bright);
+}
+
+/* ---- Product row (Ecosystem section) ---- */
+.cs-product-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--burgundy-deep);
+  border: 1px solid var(--burgundy-deep);
+}
+
+.cs-product {
+  background: var(--ink);
+  padding: 32px;
+}
+
+.cs-product-num {
+  display: block;
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--burgundy-bright);
+  margin-bottom: 14px;
+}
+
+.cs-product h3 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.cs-product p {
+  font-size: 14.5px;
+  color: var(--paper-dim);
+  margin: 0;
+}
+
+/* ---- Split layout (text + visual) ---- */
+.cs-split {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  align-items: start;
+}
+
+.cs-split--reverse { grid-template-columns: 320px 1fr; }
+.cs-split--reverse .cs-split-text { order: 2; }
+.cs-split--reverse .cs-split-visual { order: 1; }
+
+/* ---- Flow steps (journey / lifecycle strips) ---- */
+.flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 28px;
+}
+
+.flow-steps span {
+  font-size: 13px;
+  color: var(--paper);
+  border: 1px solid var(--burgundy-deep);
+  border-radius: 999px;
+  padding: 7px 16px;
+}
+
+.flow-steps--arrow span:not(:last-child)::after {
+  content: '→';
+  margin-left: 10px;
+  color: var(--brass);
+}
+
+.flow-steps--lifecycle span { border-color: var(--burgundy-bright); }
+
+/* ---- Problem / Solution block ---- */
+.problem-solution {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--burgundy-deep);
+  border: 1px solid var(--burgundy-deep);
+}
+
+.ps-block {
+  background: var(--ink-soft);
+  padding: 36px;
+}
+
+.cs-section--tint .ps-block { background: var(--ink); }
+
+.ps-label {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--brass);
+  margin-bottom: 14px;
+}
+
+.ps-block p {
+  font-size: 15px;
+  color: var(--paper-dim);
+  margin: 0;
+}
+
+/* ---- Capability grid reuse for engineering section ---- */
+.cap-grid--cs { border-color: var(--burgundy-deep); }
+
+/* ---- Closing ---- */
+.cs-closing {
+  padding: 140px var(--edge);
+  text-align: center;
+  border-top: 1px solid var(--burgundy-deep);
+}
+
+.cs-closing-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(26px, 4vw, 40px);
+  color: var(--paper);
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
+.cs-closing-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .cs-grid-2 { grid-template-columns: 1fr; gap: 20px; }
+  .cs-product-row { grid-template-columns: 1fr; }
+  .cs-split, .cs-split--reverse {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .cs-split-visual { order: -1; max-width: 280px; }
+  .problem-solution { grid-template-columns: 1fr; }
+  .cs-closing-links { flex-direction: column; gap: 16px; align-items: center; }
+}
