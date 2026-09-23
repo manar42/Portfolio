@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manar Salah — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 14mm 16mm 14mm 16mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #111827;
+      background-color: #ffffff;
+      line-height: 1.45;
+      font-size: 9.6pt;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Container for Screen & Print */
+    .cv-container {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 4px 0;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .name {
+      font-size: 22pt;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 2px;
+    }
+    .title {
+      font-size: 11pt;
+      font-style: italic;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+
+    /* Contact Row */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px 16px;
+      font-size: 8.8pt;
+      color: #334155;
+    }
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .contact-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+      color: #0f172a;
+    }
+
+    /* Unified SVG Icons */
+    .icon {
+      width: 13px;
+      height: 13px;
+      stroke: #1e293b;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #0f172a;
+      border-bottom: 1.2px solid #0f172a;
+      padding-bottom: 2px;
+      margin-bottom: 8px;
+    }
+
+    /* Summary */
+    .summary-text {
+      text-align: justify;
+      color: #334155;
+      font-size: 9.2pt;
+      line-height: 1.45;
+    }
+
+    /* Projects & Items */
+    .item {
+      margin-bottom: 10px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .item:last-child {
+      margin-bottom: 0;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .item-title-wrap {
+      font-size: 9.5pt;
+    }
+    .item-title {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .item-links {
+      font-size: 8.5pt;
+      color: #64748b;
+      margin-left: 4px;
+    }
+    .item-links a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+    .item-links a:hover {
+      text-decoration: underline;
+    }
+    .item-date {
+      font-size: 8.8pt;
+      font-weight: 600;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .item-tech {
+      font-size: 8.6pt;
+      color: #475569;
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+    .item-tech strong {
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    /* Bullet Points */
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .bullet-list li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 3.5px;
+      font-size: 9pt;
+      color: #334155;
+      line-height: 1.4;
+      text-align: justify;
+    }
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: #0f172a;
+      font-size: 11pt;
+      line-height: 1;
+      top: -1px;
+    }
+    .bullet-list li strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    /* Skills Grid */
+    .skills-group {
+      margin-bottom: 4px;
+      font-size: 8.8pt;
+      line-height: 1.45;
+      color: #334155;
+    }
+    .skills-group strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    /* Education */
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 9.3pt;
+      margin-bottom: 1px;
+    }
+    .edu-title {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .edu-sub {
+      font-size: 8.7pt;
+      color: #475569;
+    }
+
+    /* Print Controls */
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .cv-container {
+        padding: 0;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .item-links a {
+        color: #0284c7;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cv-container">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header">
+    <h1 class="name">Manar Salah</h1>
+    <div class="title">Flutter Developer</div>
+    
+    <div class="contact-row">
+      <!-- Email -->
+      <span class="contact-item">
+        <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <a href="mailto:manarsalah3200@gmail.com">manarsalah3200@gmail.com</a>
+      </span>
+
+      <!-- Phone -->
+      <span class="contact-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+201109057028">0110-905-7028</a>
+      </span>
+
+      <!-- Location -->
+      <span class="contact-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Sharqia, Egypt</span>
+      </span>
+
+      <!-- LinkedIn -->
+      <span class="contact-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://linkedin.com/in/manar-salah-8125052ab" target="_blank">LinkedIn</a>
+      </span>
+
+      <!-- GitHub -->
+      <span class="contact-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        <a href="https://github.com/manar42" target="_blank">GitHub</a>
+      </span>
+
+      <!-- Portfolio (Clean Web Globe Icon) -->
+      <span class="contact-item">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        <a href="https://portfolio-d19p.vercel.app/" target="_blank">Portfolio</a>
+      </span>
+    </div>
+  </header>
+
+  <!-- ==================== SUMMARY ==================== -->
+  <section class="section">
+    <h2 class="section-title">Summary</h2>
+    <p class="summary-text">
+      Flutter Developer with 2+ years of experience building and delivering real-world mobile applications. Focused on turning product ideas into reliable and scalable applications, with hands-on experience in application architecture, backend integration, AI-powered features, and complex product workflows. Looking to join a strong engineering team to contribute to meaningful products, take ownership of challenging technical problems, and continue growing as a software engineer.
+    </p>
+  </section>
+
+  <!-- ==================== PROJECT EXPERIENCE ==================== -->
+  <section class="section">
+    <h2 class="section-title">Project Experience</h2>
+
+    <!-- Project 1: ZooVerse -->
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title-wrap">
+          <span class="item-title">ZooVerse — Multi-Role Zoo Management &amp; Visitor Platform</span>
+          <span class="item-links">(<a href="https://portfolio-d19p.vercel.app/#work" target="_blank">Case Study</a>)</span>
+        </div>
+        <span class="item-date">Jun. 2026</span>
+      </div>
+      <div class="item-tech">
+        <strong>Technologies:</strong> Flutter, Dart, Firebase, Cloud Firestore, Supabase, BLoC/Cubit, Clean Architecture, GoRouter, Dependency Injection, Geofencing, OpenStreetMap, Google Maps, Paymob Payment Gateway, Real-time Systems, Localization, Responsive Web
+      </div>
+      <ul class="bullet-list">
+        <li>Delivered <strong>3 integrated applications</strong> — a Visitor mobile app, an Employee mobile app with role-based workflows, and an Admin web dashboard — as a single zoo management ecosystem on a shared backend.</li>
+        <li>Delivered core visitor journeys covering animal discovery, <strong>Google Maps navigation</strong>, and QR-based ticket entry with <strong>Paymob payment integration</strong>.</li>
+        <li>Engineered real-time animal assignment using <strong>Firestore transactions</strong>, preventing conflicting claims between multiple keepers.</li>
+        <li>Established a full emergency-response lifecycle with priority levels, evidence capture, and status tracking from Pending to Resolved.</li>
+        <li>Engineered employee workflows for ticket validation, <strong>duplicate-entry prevention</strong>, and <strong>geofenced attendance tracking</strong>.</li>
+        <li>Implemented animal-care reporting with feeding records, evidence uploads, and critical-condition escalation to administrators.</li>
+      </ul>
+    </div>
+
+    <!-- Project 2: Graduation Assistant -->
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title-wrap">
+          <span class="item-title">Graduation Assistant — AI-Powered Graduation Project Workspace</span>
+        </div>
+        <span class="item-date">Mar. 2026</span>
+      </div>
+      <div class="item-tech">
+        <strong>Technologies:</strong> Flutter, Dart, BLoC, Clean Architecture, Gemini AI, Supabase, Hive
+      </div>
+      <ul class="bullet-list">
+        <li>Developed an AI-powered workspace that turns raw project ideas into structured deliverables — SRS, ERD, use cases, and risk analysis.</li>
+        <li>Architected a <strong>local-first data layer with Hive</strong>, backed by bidirectional Supabase synchronization and conflict resolution.</li>
+        <li>Integrated <strong>Google Gemini</strong> with prompt sanitization, structured JSON parsing, and rate-limited retry handling.</li>
+        <li>Built a custom 2D diagram renderer using <strong>Flutter Canvas</strong> to generate interactive ERD and Use Case diagrams with Bézier curve routing — no third-party library.</li>
+        <li>Secured data ownership end-to-end with Supabase Auth, PostgreSQL, and <strong>Row-Level Security (RLS)</strong>.</li>
+      </ul>
+    </div>
+
+    <!-- Project 3: Tabibi -->
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title-wrap">
+          <span class="item-title">Tabibi — Multi-Role Healthcare Management Platform</span>
+          <span class="item-links">(<a href="https://portfolio-d19p.vercel.app/#work" target="_blank">Case Study</a>)</span>
+        </div>
+        <span class="item-date">Nov. 2025</span>
+      </div>
+      <div class="item-tech">
+        <strong>Technologies:</strong> Flutter, Dart, Firebase, Cloud Firestore, BLoC/Cubit, Clean Architecture, GoRouter, Dependency Injection, Firebase Notifications, PDF Generation, Localization, Responsive Web, Custom Design System
+      </div>
+      <ul class="bullet-list">
+        <li>Delivered <strong>3 integrated applications</strong> — a Patient app, a Doctor app, and an Admin web dashboard — as a single healthcare platform on a shared real-time backend.</li>
+        <li>Implemented the full appointment lifecycle, from booking and availability to cancellation and follow-up scheduling.</li>
+        <li>Enabled <strong>real-time doctor–patient messaging</strong> with text, files, voice notes, and read receipts.</li>
+        <li>Produced digital clinical records with diagnosis, prescriptions, and <strong>PDF medical reports</strong>.</li>
+        <li>Implemented doctor access control with admin-generated invitation codes and role-based permissions.</li>
+        <li>Established shared architecture across all 3 apps using <strong>Clean Architecture</strong> and reusable design-system components.</li>
+      </ul>
+    </div>
+
+    <!-- Project 4: Ishara -->
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title-wrap">
+          <span class="item-title">Ishara — Arabic Sign Language AI</span>
+          <span class="item-links">(<a href="https://portfolio-d19p.vercel.app/#work" target="_blank">Case Study</a> · <a href="https://github.com/manar42" target="_blank">GitHub</a>)</span>
+        </div>
+        <span class="item-date">Aug. 2025</span>
+      </div>
+      <div class="item-tech">
+        <strong>Technologies:</strong> Flutter, Dart, MediaPipe, TensorFlow Lite, On-Device ML
+      </div>
+      <ul class="bullet-list">
+        <li>Built an <strong>offline-first Arabic Sign Language app</strong> with bidirectional translation: Sign → Text and Text → Sign, running entirely on-device with no cloud dependency.</li>
+        <li>Achieved recognition support for <strong>31 Arabic sign classes</strong> through a real-time computer vision pipeline using MediaPipe hand landmarks and a custom TFLite classifier.</li>
+        <li>Implemented temporal prediction stabilization to smooth frame-by-frame noise and increase recognition consistency in live video input.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ==================== EDUCATION ==================== -->
+  <section class="section">
+    <h2 class="section-title">Education</h2>
+    <div class="item">
+      <div class="edu-header">
+        <span class="edu-title">Obour Institutes — Bachelor of Computer Science</span>
+        <span class="item-date">October 2022 – June 2026</span>
+      </div>
+      <div class="edu-sub">Cairo, Egypt | Grade: Good</div>
+    </div>
+  </section>
+
+  <!-- ==================== TECHNICAL SKILLS ==================== -->
+  <section class="section">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-group"><strong>Mobile Development:</strong> Flutter, Dart, Android, Responsive UI</div>
+    <div class="skills-group"><strong>Architecture &amp; State Management:</strong> Clean Architecture, BLoC/Cubit, Dependency Injection, Repository Pattern</div>
+    <div class="skills-group"><strong>Backend &amp; APIs:</strong> Firebase, Supabase, PostgreSQL, REST APIs, Row-Level Security (RLS)</div>
+    <div class="skills-group"><strong>AI &amp; Machine Learning:</strong> Google Gemini API, TensorFlow Lite, MediaPipe, Computer Vision</div>
+    <div class="skills-group"><strong>Data &amp; Synchronization:</strong> Hive, Offline-First Architecture, Cloud Synchronization, Conflict Resolution</div>
+    <div class="skills-group"><strong>Tools &amp; Testing:</strong> Unit Testing, Git, GitHub, Debugging</div>
+    <div class="skills-group"><strong>UI &amp; Internationalization:</strong> Material 3, Arabic/English Localization, RTL Support</div>
+    <div class="skills-group"><strong>Soft Skills:</strong> Problem-Solving, Attention to Detail, Adaptability, Time Management, Self-Directed Learning, Ownership</div>
+  </section>
+
+  <!-- ==================== LANGUAGES ==================== -->
+  <section class="section">
+    <h2 class="section-title">Languages</h2>
+    <div class="skills-group"><strong>Arabic:</strong> Native &nbsp;|&nbsp; <strong>English:</strong> Fluent</div>
+  </section>
+
+</div>
+
+</body>
+</html>
