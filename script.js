@@ -137,26 +137,51 @@ if (siteHeader) {
 }
 
 // ============================================================
-// SMOOTH ACTIVE NAV LINK — highlight current section
+// ACCURATE SCROLLSPY — highlight active navigation link
 // ============================================================
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-const sections = document.querySelectorAll('section[id]');
+const trackedSections = document.querySelectorAll('section[id]');
 
-if (navLinks.length && sections.length) {
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.style.color = link.getAttribute('href') === `#${entry.target.id}`
-            ? 'var(--text-primary)'
-            : '';
-        });
-      }
-    });
-  }, { threshold: 0.4 });
+function updateActiveNav() {
+  const scrollPosition = window.scrollY + 220; // header look-ahead offset
+  let activeId = '';
 
-  sections.forEach(s => navObserver.observe(s));
+  trackedSections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    if (scrollPosition >= top && scrollPosition < top + height) {
+      activeId = section.getAttribute('id');
+    }
+  });
+
+  // Reached bottom of page
+  if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)) {
+    activeId = 'contact';
+  } else if (!activeId && window.scrollY < 200) {
+    activeId = 'top';
+  }
+
+  navLinks.forEach(link => {
+    const targetId = link.getAttribute('href').replace('#', '');
+    if (targetId === activeId) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
 }
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+window.addEventListener('resize', updateActiveNav, { passive: true });
+document.addEventListener('DOMContentLoaded', updateActiveNav);
+updateActiveNav();
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
 
 // ============================================================
 // SCROLL PROGRESS BAR
